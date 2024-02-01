@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+option csharp_namespace = "CustomerAPI";
+
+package customer;
+
+// The customer message definition.
+message Customer {
+  int32 id = 1;                  // Unique identifier for the customer
+  string first_name = 2;         // First name of the customer
+  string last_name = 3;          // Last name of the customer
+  string email = 4;              // Email address of the customer
+}
+
+// The customer service definition.
+service CustomerService {
+  // Retrieves a customer by their ID.
+  rpc GetCustomerById(GetCustomerByIdRequest) returns (GetCustomerByIdResponse);
+
+  // Creates a new customer.
+  rpc CreateCustomer(CreateCustomerRequest) returns (CreateCustomerResponse);
+}
+
+// Request message for GetCustomerById.
+message GetCustomerByIdRequest {
+  int32 customer_id = 1;         // ID of the customer to retrieve
+}
+
+// Response message for GetCustomerById.
+message GetCustomerByIdResponse {
+  Customer customer = 1;         // The customer details
+}
+
+// Request message for CreateCustomer.
+message CreateCustomerRequest {
+  Customer customer = 1;         // The customer details to create
+}
+
+// Response message for CreateCustomer.
+message CreateCustomerResponse {
+  Customer customer = 1;         // The newly created customer details
+  bool success = 2;              // Whether the creation was successful
+  string message = 3;            // Additional message, e.g., error message
+}
