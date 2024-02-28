@@ -62,4 +62,4 @@ message Empty {}
 
 Contributions are welcome! If you find any issues or have ideas for improvements, feel free to create a pull request.
 
-Happy coding with gRPC! 🚀
+Happy coding with gRPC and dotnet! 🚀
